@@ -1,0 +1,286 @@
+@charset "uth-8";
+
+/* 共通項目 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+/* header */
+header {
+    /* 背景色 */
+    background-color: rgb(220, 220, 220);
+    /* 横並びに */
+    display: flex;
+    /* 左右に分ける */
+    justify-content: space-between;
+    /* 内側余白をつける */
+    padding: 15px;
+}
+
+/* headerのなかのulに指定 */
+header ul {
+    /* 横並び */
+    display: flex;
+    /* ulの黒丸を消す */
+    list-style: none;
+    /* 横幅 */
+    width: 40%;
+}
+
+header ul li {
+    /* 幅がわからない時は背景色を付けるとわかる */
+
+    /* 横幅 */
+    width: 100%;
+    /* 下線 */
+    border-bottom: 1px solid black;
+    /* 外の左右5pxの余白 */
+    margin: 0 5px;
+    /* 真ん中に文字を*/
+    text-align: center;
+    /* 上下の文字の幅 */
+    line-height: 3;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.box {
+    width: 90%;
+    height: 670px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+/* main */
+/* id名なら#から/　class名なら.から指定 */
+.main-image {
+    /* 横幅調整 */
+    width: 90%;
+    /* 縦幅調整 */
+    height: 670px;
+    /* インラインブロックからブロック要素に変更（そうすること（そうする事でmargin: 0 auto;が使用可能に） */
+    display: block;
+    /* 全体が横幅100%-width:90;は残り10%!その10%を左右に5%ずつ分て真ん中に持っていく持っていく */
+    margin: 0 auto;
+    /* アニメーション名前を追加 */
+    animation: abc 3000ms linear;
+}
+
+/* アニメーションの追加 */
+@keyframes abc {
+    0% {
+        /* 拡大 */
+        scale: 0;
+        /* 透明に */
+        opacity: 0;
+    }
+
+    50% {
+        scale: 3;
+    }
+
+    100% {
+        scale: 1;
+        opacity: 1;
+    }
+}
+
+main section {
+    /* 親要素に背景色 */
+    background-color: rgba(223, 223, 223, 0.288);
+}
+
+article {
+    /* articleの横幅調整*/
+    width: 80%;
+    /* article要素を真ん中に真ん中に */
+    margin: 0 auto;
+    /* 親要素の子要素に背景色 */
+    background-color: rgba(255, 255, 255, 0.924);
+    /* articleのなかの文字全体を真ん中に */
+    text-align: center;
+    /* 要素の内側で余白を作る */
+    padding: 40px;
+}
+
+/* 追加要素 */
+.parent {
+    /* 横幅追加 */
+    width: 100%;
+    /* 横並び */
+    display: flex;
+    /* ギャップで要素の間をつける */
+    gap: 6px;
+    /* 横幅に溢れたら下にずらす */
+    flex-wrap: wrap;
+    /* 内余白 */
+    padding: 10px;
+    background-color: rgb(0, 0, 0);
+}
+
+.parent div {
+    background-color: rgb(255, 255, 255);
+    /* div一つのひとつの幅を割り当てる */
+    width: calc((100% - 12px) / 3);
+}
+
+/* articleのh1をスタイリング */
+article h2 {
+    background-color: black;
+    color: white;
+    width: 40%;
+    border-radius: 20px;
+    margin: 0px auto;
+}
+
+/* articleのh1をスタイリング */
+article p {
+    padding: 30px 0;
+    /* background-color: antiquewhite; */
+}
+
+/* pタグの文字を小さくする */
+.parent p {
+    font-size: 8px;
+}
+
+/* ingは丸くする、そして上下の外余白をつける */
+.parent img {
+    border-radius: 50px;
+    margin: 10px 0;
+}
+
+/* 実績編集 */
+#jisseki div {
+    background-color: rgb(172, 172, 172);
+    width: 80%;
+    border: 1px solid;
+    padding: 10px;
+    margin: 10px auto;
+}
+
+/* inputとtexteareのスタイリング */
+#inquiry input,
+textarea {
+    width: 80%;
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* labelのスタイリング */
+#inquiry label {
+    display: block;
+    margin: 30px 0;
+}
+
+#inquiry {
+    text-align: center;
+}
+
+.link {
+    display: block;
+    /* 上下10px 左右真ん中 */
+    margin: 10px auto;
+    width: 30%;
+    text-align: center;
+    background-color: black;
+    padding: 10px 0px;
+    /* 文字の色を変える */
+    color: white;
+    /* アンダーライン(下線)noneでを消す */
+    text-decoration: none;
+}
+
+.last-p {
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-size: 10%;
+    /* 文字の横の間隔をあける */
+    letter-spacing: 10px;
+    padding: 10px 0;
+}
+
+/* スマホサイズ440px以下の時のレイアウト調整 */
+@media (max-width:440px) {
+    header {
+        flex-direction: column;
+    }
+
+    header h1 {
+        text-align: center;
+    }
+
+    header ul {
+        width: 100%;
+    }
+
+    header li {
+        font-size: 10px;
+    }
+
+    .main-image {
+        width: 100%;
+        height: 250px;
+        /* 縦横伸ばして画質が悪くなるのを自動調整 */
+        object-fit: cover;
+    }
+
+    article {
+        width: 100%;
+        padding: 10px;
+    }
+
+    article h2 {
+        width: 100%;
+    }
+
+    article p {
+        font-size: 11px;
+    }
+
+    .parent div {
+        width: 100%;
+    }
+
+    .parent p {
+        padding: 0;
+    }
+
+    .parent img {
+        width: 100%;
+        border-radius: 0;
+    }
+
+    #jisseki p {
+        padding: 10%;
+    }
+
+    #box div {
+        width: 100%;
+    }
+
+    .link {
+        width: 60%;
+        font-size: 10px;
+        margin: 20px auto;
+        border-radius: 30px;
+    }
+
+    .last-p {
+        letter-spacing: 3px;
+    }
+
+    /* <img src="/images/kk_ears.jpg" alt="自分の写真" class="main-image">の拡大を　overflow: hidden;で超えた場合 */
+    .box {
+        width: 90%;
+        height: 300px;
+    }
+}
